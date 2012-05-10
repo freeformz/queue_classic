@@ -127,7 +127,7 @@ module QC
             ' LIMIT ' || quote_literal(top_boundary) || ') limited'
             INTO job_count;
 
-          SELECT TRUNC(random() * top_boundary + 1) INTO relative_top;
+          SELECT TRUNC(random() * top_boundary - 1) INTO relative_top;
           IF job_count < top_boundary THEN
             relative_top = 0;
           END IF;
